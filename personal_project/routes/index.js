@@ -34,30 +34,30 @@ module.exports = router;
 
 //want to get to the point where this index.js will read the contents within the views folder and print out the results
 
-var blogposts = fs.readdirSync(__dirname + '/../projects');
-var collector = [];
-var filecollector = [];	
-blogposts.forEach(function cleanfiles (value, index, array) {
-	var infile;
-	var pattern = new RegExp('.jade');
-	if( pattern.test(value)){
-		infile = fs.readFile( __dirname + '/../projects/' + blogposts[index]);
-		filecollector.push(infile);
-		collector.push(value);
-		console.log('is a dot jade file')
-	}
-	else {
-		console.log('is not a jade file')
-	}
-	}
-// return filecollector
-});
+// var blogposts = fs.readdirSync(__dirname + '/../projects');
+// var collector = [];
+// var filecollector = [];	
+// blogposts.forEach(function cleanfiles (value, index, array) {
+// 	var infile;
+// 	var pattern = new RegExp('.jade');
+// 	if( pattern.test(value)){
+// 		infile = fs.readFile( __dirname + '/../projects/' + blogposts[index]);
+// 		filecollector.push(infile);
+// 		collector.push(value);
+// 		console.log('is a dot jade file')
+// 	}
+// 	else {
+// 		console.log('is not a jade file')
+// 	}
+// 	}
+// // return filecollector
+// });
 
-console.log(filecollector)
-console.log(filecollector.length);
-var path = require('path');
+// console.log(filecollector)
+// console.log(filecollector.length);
+// var path = require('path');
 
-router.get('/')
+// router.get('/')
 
 
 
