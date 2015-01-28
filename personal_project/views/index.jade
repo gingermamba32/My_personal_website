@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  header
+  header    
    .container
     .intro-text
      .intro-lead-in Hi!!!
      .intro-heading Welcome to my Website
-     a.page-scroll.btn.btn-xl(href='#resume') Tell Me More
+     a.page-scroll.btn.btn-xl(href='/resume') Tell Me More
   section#mission
    .container
     .row
@@ -46,10 +46,12 @@ block content
   section.bg-light-gray#portfolio
    .container
     .row
+
      .col-lg-12.text-center
       h2.section-heading portfolio
       h3.section-subheading.text-muted Links to Projects and Resources
     .row
+
      .col-md-4.col-sm-6.portfolio-item
       a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
        .portfolio-hover
@@ -59,6 +61,7 @@ block content
       .portfolio-caption
        h4 Project 1
        p.text-muted Front End Development
+
      .col-md-4.col-sm-6.portfolio-item
       a.portfolio-link(href='#portfolioModal2', data-toggle='modal')
        .portfolio-hover
@@ -151,8 +154,61 @@ block content
          .timeline-body
           p.text-muted Lorem ipsum dolor sit 
 
-  section.bg-light-grey#hobbies
+  section.bg-light-grey#team
    .container
+    .row
+     .col-lg-12.text-center
+      h2.section-heading My Passions
+      h3.section-subheading.text-muted sdkgfkdsh hsfkghf dhgkjdsgh
+    .row
+     .col-sm-4
+      .team-member
+       img.img-responsive.img-circle(src='images/img/team/1.jpg', alt="")
+       h4 Outdoors
+       p.text-muted khdfsfksd fdshksfdsk dsfk
+       ul.list-inline.social-buttons
+        li
+         a.fa.fa-linkedin(href='#')
+     .col-sm-4
+      .team-member
+       img.img-responsive.img-circle(src='images/img/team/2.jpg', alt="")
+       h4 Stock Market
+       p.text-muted khdfsfksd fdshksfdsk dsfk
+       ul.list-inline.social-buttons
+        li
+         a.fa.fa-github(href='#')
+     .col-sm-4
+      .team-member
+       img.img-responsive.img-circle(src='images/img/team/3.jpg', alt="")
+       h4 Sports
+       p.text-muted khdfsfksd fdshksfdsk dsfk
+       ul.list-inline.social-buttons
+        li
+         a.fa.fa-twitter(href='#')
+    .row
+     .col-lg-8.col-lg-offset-2.text-center
+      p.large.text-muted These were my hobbies
+
+  section#contact
+   .container
+    .row
+     .col-lg-12.text-center
+      h2.section-heading My Contact Information
+      h3.section-subheading.text-primary dsjfdsfskd idsjf ksdfj sd
+
+  footer
+   .container
+    .row
+     .text-center
+      ul.list-inline.social-buttons
+       li
+        a.fa.fa-linkedin(href='#')
+       li   
+        a.fa.fa-github(href='#')
+       li
+        a.fa.fa-twitter(href='#')
+
+      
 
 
 

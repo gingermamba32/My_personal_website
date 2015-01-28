@@ -1,5 +1,9 @@
+//require the modules====>
+
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+var jade = require('jade');
 
 //var staticLib = require('static-site-generator')
 
@@ -8,25 +12,23 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: "Michael Montero's Page" });
 });
 
-//in views folder call to separate files through the href
+//link to my resume page when clicked on
 router.get('/resume', function(req, res, next){
 	res.render('resume', { title: 'My Resume'});
 });
+//fs.readdir
+// router.get('../portfolio/', function(req, res, next){
+// 	res.render('portfolio', { title: 'My Portfolio', images:file});
+// });
 
-router.get('/portfolio', function(req, res, next){
-	res.render('portfolio', { title: 'My Portfolio'});
-});
+//read and populate the images for the project directory. Images should go within the images folder
 
-router.get('/about', function(req, res, next){
-	res.render('about', { title: 'About Me'});
-});
+// var read_images =  fs.readdir('../public/images/img/portfolio/', function(err, files){
+// 	if (err) throw new Error(err);
+//	res.render(path.resolve(__dirname + ))
 
-router.get('/hobbies', function(req, res, next){
-	res.render('hobbies', { title: 'My Hobbies'});
-});
-router.get('/contact', function(req, res, next){
-	res.render('contact', { title: 'Contact Me'});
-});
+// 		res.render('index', {})
+// });
 
 
 module.exports = router;
@@ -34,7 +36,7 @@ module.exports = router;
 
 //want to get to the point where this index.js will read the contents within the views folder and print out the results
 
-// var blogposts = fs.readdirSync(__dirname + '/../projects');
+// var portfolio_items = fs.readdirSync(__dirname + '/../projects/');
 // var collector = [];
 // var filecollector = [];	
 // blogposts.forEach(function cleanfiles (value, index, array) {
