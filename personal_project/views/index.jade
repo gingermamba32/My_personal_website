@@ -6,7 +6,7 @@ block content
     .intro-text
      .intro-lead-in Hi!!!
      .intro-heading Welcome to my Website
-     a.page-scroll.btn.btn-xl(href='/resume') View My Resume
+     a.page-scroll.btn.btn-xl(href='RESUME2014.pdf', download="resume.pdf") View My Resume
   section#mission
    .container
     .row
@@ -17,7 +17,7 @@ block content
     .col-md-4
      span.fa-stack.fa-4x
       i.fa.fa-circle.fa-stack-2x.text-primary                        
-      i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
+      i.fa.fa-laptop.fa-stack-1x.fa-inverse
                             
      h4.service-heading Front-End Development
                             
@@ -27,7 +27,7 @@ block content
     .col-md-4
      span.fa-stack.fa-4x
       i.fa.fa-circle.fa-stack-2x.text-primary
-      i.fa.fa-laptop.fa-stack-1x.fa-inverse
+      i.fa.fa-folder-open-o.fa-stack-1x.fa-inverse
                             
      h4.service-heading Project Management
                              
@@ -35,9 +35,8 @@ block content
                        
     .col-md-4
      span.fa-stack.fa-4x
-      i.fa.fa-circle.fa-stack-2x.text-primary
-                                  
-      i.fa.fa-lock.fa-stack-1x.fa-inverse
+      i.fa.fa-circle.fa-stack-2x.text-primary                        
+      i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
                             
      h4.service-heading E-Commerce Operations
                              
@@ -154,7 +153,7 @@ block content
          .timeline-body
           p.text-muted Lorem ipsum dolor sit 
 
-  section.bg-light-grey#team
+  section.bg-light-gray#team
    .container
     .row
      .col-lg-12.text-center
@@ -194,7 +193,10 @@ block content
     .row
      .col-lg-12.text-center
       h2.section-heading My Contact Information
-      h3.section-subheading.text-primary dsjfdsfskd idsjf ksdfj sd
+      h4.section-subheading.text-primary Michael Paul Montero
+      h4.section-subheading.text-primary 1105 First Street, Hermosa Beach, CA, 90254
+      h4.section-subheading.text-primary (310) 283-1510
+      h4.section-subheading.text-primary mmontero2012@gmail.com
 
   footer
    .container
@@ -204,12 +206,153 @@ block content
        li
         a.fa.fa-linkedin(href='https://www.linkedin.com/in/michaelmontero2015')
        li   
-        a.fa.fa-github(href='#')
+        a.fa.fa-github(href='https://github.com/gingermamba32')
        li
-        a.fa.fa-twitter(href='#')
+        a.fa.fa-twitter(href='https://twitter.com/')
 
-      
 
+  
+  .portfolio-modal.modal.fade#portfolioModal1(tabindex='-1', role='dialog', aria-hidden='true')
+   .modal-content
+    .close-modal(data-dismiss='modal')
+     .lr 
+      .rl 
+
+    .container
+     .row
+      .col-lg-8.col-lg-offset-2
+        .modal-body
+          h2 Project Name
+          p.item-intro.text-muted jklsdlsjsf kjlsal jfsdkj
+          img.img-responsive(src='images/img/portfolio/roundicons.png', style= {margin: '0 auto'})
+          p se this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repud
+          p Below is a link to this project 
+          p
+           span.fa-stack.fa-4x
+            i.fa.fa-circle.fa-stack-2x.text-primary                        
+            a.fa.fa-laptop.fa-stack-1x.fa-inverse(href='/portfolio/:piecename')    
+        
+          ul.list-inline
+            li data-toggle
+            li Client
+            li category
+          button.btn.btn-primary(type='button', data-dismiss='modal')
+            i.fa.fa-times close project
+  each 
+  .portfolio-modal.modal.fade#portfolioModal2(tabindex='-1', role='dialog', aria-hidden='true')
+   .modal-content
+    .close-modal(data-dismiss='modal')
+     .lr 
+      .rl 
+
+    .container
+     .row
+      .col-lg-8.col-lg-offset-2
+        .modal-body
+          h2 Project Name
+          p.item-intro.text-muted jklsdlsjsf kjlsal jfsdkj
+          img.img-responsive(src='images/img/portfolio/roundicons.png')
+          p se this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repud
+          p Below is a link to this project 
+            a(href='github link to project')
+          ul.list-inline
+            li data-toggle
+            li Client
+            li category
+          button.btn.btn-primary(type='button', data-dismiss='modal')
+            i.fa.fa-times close project
+
+  .portfolio-modal.modal.fade#portfolioModal3(tabindex='-1', role='dialog', aria-hidden='true')
+   .modal-content
+    .close-modal(data-dismiss='modal')
+     .lr 
+      .rl 
+
+    .container
+     .row
+      .col-lg-8.col-lg-offset-2
+        .modal-body
+          h2 Project Name
+          p.item-intro.text-muted jklsdlsjsf kjlsal jfsdkj
+          img.img-responsive(src='images/img/portfolio/roundicons.png')
+          p se this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repud
+          p Below is a link to this project 
+            a(href='github link to project')
+          ul.list-inline
+            li data-toggle
+            li Client
+            li category
+          button.btn.btn-primary(type='button', data-dismiss='modal')
+            i.fa.fa-times close project
+
+  .portfolio-modal.modal.fade#portfolioModal4(tabindex='-1', role='dialog', aria-hidden='true')
+   .modal-content
+    .close-modal(data-dismiss='modal')
+     .lr 
+      .rl 
+
+    .container
+     .row
+      .col-lg-8.col-lg-offset-2
+        .modal-body
+          h2 Project Name
+          p.item-intro.text-muted jklsdlsjsf kjlsal jfsdkj
+          img.img-responsive(src='images/img/portfolio/roundicons.png')
+          p se this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repud
+          p Below is a link to this project 
+            a(href='github link to project')
+          ul.list-inline
+            li data-toggle
+            li Client
+            li category
+          button.btn.btn-primary(type='button', data-dismiss='modal')
+            i.fa.fa-times close project
+
+  .portfolio-modal.modal.fade#portfolioModal5(tabindex='-1', role='dialog', aria-hidden='true')
+   .modal-content
+    .close-modal(data-dismiss='modal')
+     .lr 
+      .rl 
+
+    .container
+     .row
+      .col-lg-8.col-lg-offset-2
+        .modal-body
+          h2 Project Name
+          p.item-intro.text-muted jklsdlsjsf kjlsal jfsdkj
+          img.img-responsive(src='images/img/portfolio/roundicons.png')
+          p se this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repud
+          p Below is a link to this project 
+            a(href='github link to project')
+          ul.list-inline
+            li data-toggle
+            li Client
+            li category
+          button.btn.btn-primary(type='button', data-dismiss='modal')
+            i.fa.fa-times close project
+
+  .portfolio-modal.modal.fade#portfolioModal6(tabindex='-1', role='dialog', aria-hidden='true')
+   .modal-content
+    .close-modal(data-dismiss='modal')
+     .lr 
+      .rl 
+
+    .container
+     .row
+      .col-lg-8.col-lg-offset-2
+        .modal-body
+          h2 Project Name
+          p.item-intro.text-muted jklsdlsjsf kjlsal jfsdkj
+          img.img-responsive(src='images/img/portfolio/roundicons.png')
+          p se this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repud
+          p Below is a link to this project 
+            a(href='github link to project')
+          ul.list-inline
+            li data-toggle
+            li Client
+            li category
+          button.btn.btn-primary(type='button', data-dismiss='modal')
+            i.fa.fa-times close project
 
 
   

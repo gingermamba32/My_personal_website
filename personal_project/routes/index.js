@@ -4,64 +4,46 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var jade = require('jade');
+var read_ind_portfolio = require('../read_ind_portfolio.js');
 
-//var staticLib = require('static-site-generator')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: "Michael Montero's Page" });
-});
+router.get ('/', function(req, res, next) {
+  res.render('index', { title: "Michael Montero's Page" }); //, pieces: pieces
+	}); //
+
 
 //link to my resume page when clicked on
-router.get('/resume', function(req, res, next){
+router.get ('/resume', function(req, res, next){
 	res.render('resume', { title: 'My Resume'});
 });
-//fs.readdir
-// router.get('../portfolio/', function(req, res, next){
-// 	res.render('portfolio', { title: 'My Portfolio', images:file});
-// });
 
-//read and populate the images for the project directory. Images should go within the images folder
+//****************new stuff to get portfolio pieces**************
 
-// var read_images =  fs.readdir('../public/images/img/portfolio/', function(err, files){
-// 	if (err) throw new Error(err);
-//	res.render(path.resolve(__dirname + ))
+router.param ('piecename', function(request, response, next, piecename){
+	read_ind_portfolio.find(piecename, function () {
+		if (piece) {
+			request.piece = piece;
+			next();
+		} else {
+			return next(new Error('No such piece as ' + piecename + '!'));
+		}
+	});
+});
 
-// 		res.render('index', {})
-// });
+router.get('/portfolio/piecename', function(req, res, next){
+	read_ind_portfolio.read(function(pieces){ 
+		res.render('pieces', {title: 'My Portfolio Item'}, {pieces: piece})
+});
+});
+
+
+
+
+
 
 
 module.exports = router;
-//module.exports = staticLib.generateRoutes(router);
-
-//want to get to the point where this index.js will read the contents within the views folder and print out the results
-
-// var portfolio_items = fs.readdirSync(__dirname + '/../projects/');
-// var collector = [];
-// var filecollector = [];	
-// blogposts.forEach(function cleanfiles (value, index, array) {
-// 	var infile;
-// 	var pattern = new RegExp('.jade');
-// 	if( pattern.test(value)){
-// 		infile = fs.readFile( __dirname + '/../projects/' + blogposts[index]);
-// 		filecollector.push(infile);
-// 		collector.push(value);
-// 		console.log('is a dot jade file')
-// 	}
-// 	else {
-// 		console.log('is not a jade file')
-// 	}
-// 	}
-// // return filecollector
-// });
-
-// console.log(filecollector)
-// console.log(filecollector.length);
-// var path = require('path');
-
-// router.get('/')
-
-
 
 
 
