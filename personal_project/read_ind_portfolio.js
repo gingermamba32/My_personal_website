@@ -22,7 +22,7 @@ var read = function(callback) {
 			var data = fs.readFileSync('public/portfolio/' + ind_items[i]);
 				ind_items[i] = jade.render(data);
 		}
-	callback(pieces);
+	callback(ind_items);
 	});
 }
 

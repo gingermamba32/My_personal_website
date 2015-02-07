@@ -21,20 +21,20 @@ router.get ('/resume', function(req, res, next){
 //****************new stuff to get portfolio pieces**************
 
 router.param ('piecename', function(request, response, next, piecename){
-	read_ind_portfolio.find(piecename, function () {
+	read_ind_portfolio.find(piecename, function (piece) {
 		if (piece) {
 			request.piece = piece;
 			next();
 		} else {
-			return next(new Error('No such piece as ' + piecename + '!'));
+			return next ( new Error('No such piece as ' + piecename + '!'));
 		}
 	});
 });
 
-router.get('/portfolio/piecename', function(req, res, next){
+router.get('portfolio/pieces', function(req, res, next){
 	read_ind_portfolio.read(function(pieces){ 
-		res.render('pieces', {title: 'My Portfolio Item'}, {pieces: piece})
-});
+		res.render('pieces', {title: 'My Portfolio Item', pieces: piece})
+	});
 });
 
 
