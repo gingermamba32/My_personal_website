@@ -5,6 +5,15 @@ var router = express.Router();
 var fs = require('fs');
 var jade = require('jade');
 var read_ind_portfolio = require('../read_ind_portfolio.js');
+var path = require('path');
+//******janrain requirements
+var janrain = require('janrain-api');
+var connect = require('connect');
+var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+var https = require('https');
+
 
 
 /* GET home page. */
@@ -17,6 +26,43 @@ router.get ('/', function(req, res, next) {
 router.get ('/resume', function(req, res, next){
 	res.render('resume', { title: 'My Resume'});
 });
+
+
+//*************get my Janrain Login page*************
+var janrainApiKey = janrain('{4b50ac91bee538c9060d345c94b8a8d5b6dca041}');
+var engageUrl = 'https://rpxnow.com/api/v2/auth_info';
+
+router.get ('/login', function(req, res, next){
+	res.sendFile(path.join(__dirname, '../views/janrain.html') );
+    //console.log('Login Success');
+});
+
+router.post('/engage_callback_url', function(req, res) {
+  var userToken = req.params.token;
+  console.log(userToken);  //undefined
+  fetchUserDataFromJanrain(userToken);
+
+  res.redirect('/login');
+});
+
+function fetchUserDataFromJanrain(userToken) {
+  var apiParams = { 'apiKey': janrainApiKey, 'token': userToken };
+  var engage_params = {
+    host: engageUrl,
+    path: '/',
+    api_params: apiParams
+  };
+  // var authInfo = https.post(engage_params, function(res) {
+  //   JSON.parse(res.body);
+  // });
+}
+
+
+
+
+
+
+
 
 //****************new stuff to get portfolio pieces**************
 
