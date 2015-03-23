@@ -8,11 +8,11 @@ var read_ind_portfolio = require('../read_ind_portfolio.js');
 var path = require('path');
 //******janrain requirements
 var janrain = require('janrain-api');
-var connect = require('connect');
-var app = express();
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-var https = require('https');
+// var connect = require('connect');
+// var app = express();
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json());
+//var http = require('https');
 
 
 
@@ -29,38 +29,61 @@ router.get ('/resume', function(req, res, next){
 
 
 //*************get my Janrain Login page*************
+
 var janrainApiKey = janrain('{4b50ac91bee538c9060d345c94b8a8d5b6dca041}');
 var engageUrl = 'https://rpxnow.com/api/v2/auth_info';
+console.log(janrainApiKey);
 
 router.get ('/login', function(req, res, next){
 	res.sendFile(path.join(__dirname, '../views/janrain.html') );
     //console.log('Login Success');
 });
 
-router.post('/engage_callback_url', function(req, res) {
-  var userToken = req.params.token;
-  console.log(userToken);  //undefined
-  fetchUserDataFromJanrain(userToken);
-
-  res.redirect('/login');
-});
-
 function fetchUserDataFromJanrain(userToken) {
   var apiParams = { 'apiKey': janrainApiKey, 'token': userToken };
+  console.log(apiParams);
   var engage_params = {
     host: engageUrl,
     path: '/',
     api_params: apiParams
   };
+
   // var authInfo = https.post(engage_params, function(res) {
   //   JSON.parse(res.body);
   // });
 }
 
+router.post('/engage_callback_url', function(req, res) {
+  var userToken = req.body.token;
+  console.log(userToken);  
+  //if user token is bad ERROR handling
+  if(!userToken || userToken.length != 40 ) {
+    res.send('Bad Token!');
+    return;
+  }
+	console.log(fetchUserDataFromJanrain(userToken));
+  	fetchUserDataFromJanrain(userToken);
 
+  	//console.log(JSON.parse(res.body));
+  	res.redirect('/login');
+});
 
+var http = require('http');
 
+function fetchUserDataFromJanrain(userToken) {
+  var apiParams = { 'apiKey': janrainApiKey, 'token': userToken };
+  console.log(apiParams);
 
+  var engage_params = {
+    host: engageUrl,
+    path: '/',
+    api_params: apiParams
+  };
+console.log(engage_params);
+  // var authInfo = http.post(engage_params, function(res) {
+  //   JSON.parse(res.body);
+  // });
+}
 
 
 
