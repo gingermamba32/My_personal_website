@@ -6,9 +6,12 @@
 		    if (typeof window.janrain !== 'object') window.janrain = {};
 		    if (typeof window.janrain.settings !== 'object') window.janrain.settings = {};
 		    
-		    /* _______________ can edit below this line _______________ */
+		    //site is not live so need to be local host
+		    janrain.settings.tokenUrl = 'http://localhost:3000/engage_callback_url';
+
 		    //Site is live so the Token URL is set to the website
-		    janrain.settings.tokenUrl = 'http://www.michaelpmontero.com/engage_callback_url';
+		    //janrain.settings.tokenUrl = 'http://www.michaelpmontero.com/engage_callback_url';
+		    
 		    janrain.settings.type = 'modal';
 		    janrain.settings.appId = 'hpdanleflcmfgmgcccne';
 		    janrain.settings.appUrl = 'https://resumeproj.rpxnow.com';

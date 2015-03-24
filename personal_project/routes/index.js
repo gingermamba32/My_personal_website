@@ -61,10 +61,14 @@ router.post('/engage_callback_url', function(req, res) {
     res.send('Bad Token!');
     return;
   }
-	console.log(fetchUserDataFromJanrain(userToken));
+	//console.log(fetchUserDataFromJanrain(userToken));
   	fetchUserDataFromJanrain(userToken);
 
   	//console.log(JSON.parse(res.body));
+    //console.log(JSON(body));
+
+    //res.JSON(body)
+
   	res.redirect('/login');
 });
 
