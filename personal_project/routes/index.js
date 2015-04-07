@@ -7,12 +7,7 @@ var jade = require('jade');
 var read_ind_portfolio = require('../read_ind_portfolio.js');
 var path = require('path');
 //******janrain requirements
-var janrain = require('janrain-api');
-// var connect = require('connect');
-// var app = express();
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-//var http = require('https');
+var http = require('https');
 
 
 
@@ -30,64 +25,56 @@ router.get ('/resume', function(req, res, next){
 
 //*************get my Janrain Login page*************
 
-var janrainApiKey = janrain('{4b50ac91bee538c9060d345c94b8a8d5b6dca041}');
-var engageUrl = 'https://rpxnow.com/api/v2/auth_info';
-console.log(janrainApiKey);
+// var janrainApiKey = janrain('{4b50ac91bee538c9060d345c94b8a8d5b6dca041}');
+// var engageUrl = 'https://rpxnow.com/api/v2/auth_info';
+// console.log(janrainApiKey);
 
 router.get ('/login', function(req, res, next){
 	res.sendFile(path.join(__dirname, '../views/janrain.html') );
     //console.log('Login Success');
 });
 
-function fetchUserDataFromJanrain(userToken) {
-  var apiParams = { 'apiKey': janrainApiKey, 'token': userToken };
-  console.log(apiParams);
-  var engage_params = {
-    host: engageUrl,
-    path: '/',
-    api_params: apiParams
-  };
+//post to the OAuths
 
-  // var authInfo = https.post(engage_params, function(res) {
-  //   JSON.parse(res.body);
-  // });
-}
+var fs, http, https, querystring, _ref;
 
-router.post('/engage_callback_url', function(req, res) {
-  var userToken = req.body.token;
-  console.log(userToken);  
-  //if user token is bad ERROR handling
-  if(!userToken || userToken.length != 40 ) {
-    res.send('Bad Token!');
-    return;
-  }
-	//console.log(fetchUserDataFromJanrain(userToken));
-  	fetchUserDataFromJanrain(userToken);
+_ref = ['fs', 'http', 'https', 'querystring'].map(require), fs = _ref[0], http = _ref[1], https = _ref[2], querystring = _ref[3];
 
-  	//console.log(JSON.parse(res.body));
-    //console.log(JSON(body));
+router.post('/engage_callback_url', function(request, response) {
+      request.setEncoding('utf8');
+      request.on('data', function(chunk) {
+        var query_params, token, url;
+        token = querystring.parse(chunk)['token'];
+        console.log("Recieved token: " + token);
+        query_params = querystring.stringify({
+          apiKey: '4b50ac91bee538c9060d345c94b8a8d5b6dca041',
+          token: token
+        });
+        url = {
+          protocol: "https:",
+          host: "rpxnow.com",
+          path: "/api/v2/auth_info?" + query_params
+        };
+        console.log(("Requesting URL: " + url.protocol + "://") + url.host + url.path);
+        https.get(url, function(res) {
+          response.writeHead(200, {
+            'Content-Type': 'text/javascript'
+          });
+          res.setEncoding('utf8');
+          res.on('data', function(chnk) {
+            response.write(chnk);
+            return console.log(chnk);
+          });
+          return res.on('end', function() {
+            return response.end();
+          });
+        });
+      });
+    });
 
-    //res.JSON(body)
 
-  	res.redirect('/login');
-});
 
-var http = require('http');
 
-function fetchUserDataFromJanrain(userToken) {
-  var apiParams = { 'apiKey': janrainApiKey, 'token': userToken };
-  console.log(apiParams);
-
-  var engage_params = {
-    host: engageUrl,
-    path: '/',
-    api_params: apiParams
-  };
-console.log(engage_params);
-  // var authInfo = http.post(engage_params, function(res) {
-  //   JSON.parse(res.body);
-  // });
-}
 
 
 
