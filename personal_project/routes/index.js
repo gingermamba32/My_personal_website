@@ -24,14 +24,10 @@ router.get ('/resume', function(req, res, next){
 
 
 //*************get my Janrain Login page*************
-
-// var janrainApiKey = janrain('{4b50ac91bee538c9060d345c94b8a8d5b6dca041}');
-// var engageUrl = 'https://rpxnow.com/api/v2/auth_info';
-// console.log(janrainApiKey);
-
+//resSendFIle is used for any nonjade files
 router.get ('/login', function(req, res, next){
 	res.sendFile(path.join(__dirname, '../views/janrain.html') );
-    //console.log('Login Success');
+    
 });
 
 //post to the OAuths
@@ -71,12 +67,6 @@ router.post('/engage_callback_url', function(request, response) {
         });
       });
     });
-
-
-
-
-
-
 
 //****************new stuff to get portfolio pieces**************
 
