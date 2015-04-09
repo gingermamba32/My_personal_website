@@ -16,6 +16,22 @@ router.get ('/', function(req, res, next) {
   res.render('index', { title: "Michael Montero's Page" }); //, pieces: pieces
 	}); //
 
+//Add the place where people can leave a message for me through email
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*************************************************************
 
 //link to my resume page when clicked on
 router.get ('/resume', function(req, res, next){
