@@ -1,6 +1,6 @@
 # My Portfolio Site
 
-A website designed using bootstrap and hosted on heroku used to demonstrate my coding ability
+A website designed using bootstrap and hosted on heroku used as a Portfolio/AboutME website
 
 Specs
 
@@ -8,7 +8,7 @@ Specs
 
 	Jade used for the design
 
-	Node.js
+	Node.js for loading up the portfolio pieces
 
 
 Using a post modern desing to house my best work
