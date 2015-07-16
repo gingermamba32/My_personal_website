@@ -6,6 +6,7 @@ var fs = require('fs');
 var jade = require('jade');
 var read_ind_portfolio = require('../read_ind_portfolio.js');
 var path = require('path');
+var favicon = require('serve-favicon');
 //******janrain requirements
 var http = require('https');
 
